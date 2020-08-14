@@ -107,7 +107,7 @@
 								}
 							}
 							else{
-								// retrieve selected results from database and display them on page
+								// seçilen sonuçları veritabanından alın ve sayfada görüntüleyin
 								$sql="SELECT * FROM kelime LIMIT ". $this_page_first_result .",".  $results_per_page ;
 								$query=$db->prepare($sql);	
 								$query->execute();
@@ -126,7 +126,7 @@
 						}
 
 						else{
-								// retrieve selected results from database and display them on page
+								// seçilen sonuçları veritabanından alın ve sayfada görüntüleyin
 							$sql="SELECT * FROM kelime LIMIT ". $this_page_first_result .",".  $results_per_page ;
 							$query=$db->prepare($sql);	
 							$query->execute();
