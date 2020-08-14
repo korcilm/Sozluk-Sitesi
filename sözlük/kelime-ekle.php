@@ -39,15 +39,12 @@
 					</div>
 					<?php 
 					if ($_POST) {
-						if (!empty($_POST["en"]) && !empty($_POST["tr"]) && !empty($_POST["kategori"])) {
+						if (!empty($_POST["en"]) && !empty($_POST["tr"])) {
 							$ingilizce=$_POST["en"];
 							$turkce=$_POST["tr"];
-							$kategori=$_POST["kategori"];
-							explode(" ", $kategori);
-
-
-							$query =$db->prepare("INSERT INTO kelime SET ingilizce=? , turkce=? , kategori_id=?");
-							$insert =$query->execute(array($ingilizce,$turkce,$kategori[0]));
+							
+							$query =$db->prepare("INSERT INTO kelime SET ingilizce=? , turkce=?");
+							$insert =$query->execute(array($ingilizce,$turkce));
 							if ($insert) {
 								?>
 								<div class="alert alert-success">İşleminiz başarıyla kaydedildi.</div>
@@ -81,20 +78,6 @@
 									<input type="text" class="form-control" name="tr" placeholder="Kelimenin Türkçesini Giriniz">
 								</div>
 							</div>
-							
-							<div class="form-group row">
-								<label class="col-sm-2 col-form-label">Kategori</label>
-								<div class="col-sm-10">
-									<select class="form-control" name="kategori">
-										<option>1 Genel</option>
-										<option>2 Bilişim</option>
-										<option>3 Makine</option>
-									</select>
-								</div>
-								
-							</div>
-
-
 						</div>
 
 						<div class="card-footer">
